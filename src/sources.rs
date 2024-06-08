@@ -1,11 +1,11 @@
 use configparser::ini::Ini;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct DownloadSource {
-    mirror_1: String,
-    mirror_2: String,
-    mirror_3: String,
-    checksum: String,
+    pub mirror_1: String,
+    pub mirror_2: String,
+    pub mirror_3: String,
+    pub checksum: String,
 }
 
 impl DownloadSource {
