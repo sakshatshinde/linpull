@@ -8,35 +8,9 @@ pub struct DownloadSource {
     checksum: String,
 }
 
-struct ChecksumData;
-
-trait IsoChksum {
-    fn arch_linux_chksum() -> chksum::SHA2_256; // https://archlinux.org/iso/2024.06.01/sha256sums.txt
-    fn ubuntu_chksum() -> chksum::SHA2_256;
-    fn nix_chksum() -> chksum::SHA2_256;
-    fn mint_chksum() -> chksum::SHA2_256;
-    fn zorin_chksum() -> chksum::SHA2_256;
-}
-
-impl IsoChksum for ChecksumData {
-    fn arch_linux_chksum() -> chksum::SHA2_256 {
-        todo!()
-    }
-
-    fn ubuntu_chksum() -> chksum::SHA2_256 {
-        todo!()
-    }
-
-    fn nix_chksum() -> chksum::SHA2_256 {
-        todo!()
-    }
-
-    fn mint_chksum() -> chksum::SHA2_256 {
-        todo!()
-    }
-
-    fn zorin_chksum() -> chksum::SHA2_256 {
-        todo!()
+impl DownloadSource {
+    fn verify_checksum(&self, iso_checksum: chksum::SHA2_256) -> bool {
+        self.checksum == iso_checksum.digest().to_string()
     }
 }
 
