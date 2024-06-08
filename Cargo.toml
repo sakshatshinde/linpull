@@ -1,0 +1,10 @@
+[package]
+name = "linpull"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.86"
+chksum = "0.3.0"
+configparser = "3.0.4"
+trauma = "2.2.4"
