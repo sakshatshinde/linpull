@@ -10,14 +10,13 @@ async fn main() -> Result<(), anyhow::Error> {
     let mut config = Ini::new();
     let sources = load_sources(&mut config);
     let downloader = DownloaderBuilder::new()
-        .directory(PathBuf::from("Downloads"))
+        .directory(PathBuf::from("downloads"))
         .build();
 
-    // print!("{:#?}", sources);
-
     let iso = sources[0].clone();
+    println!("{:?}", iso);
 
-    let downloads = vec![Download::try_from(iso.mirror_1.as_str()).unwrap()];
+    // let downloads = vec![Download::try_from(iso.mirror_1.as_str()).unwrap()];
 
     // Starts the actual download -- do not uncomment will spam arch server!
     // downloader.download(&downloads).await;
