@@ -16,7 +16,7 @@ impl DownloadSource {
 
     fn from_config(config: &Ini, section: &str) -> Self {
         Self {
-            distro:  section.to_string(),
+            distro: section.to_string(),
             default: config.get(section, "default").unwrap_or_default(),
             minimal: config.get(section, "minimal").unwrap_or_default(),
             default_torrent: config.get(section, "default_torrent").unwrap_or_default(),
@@ -36,4 +36,9 @@ pub fn load_sources(config: &mut Ini) -> Vec<DownloadSource> {
         .iter()
         .map(|section| DownloadSource::from_config(config, section))
         .collect()
+}
+
+pub fn available_distros(config: &mut Ini) -> Vec<String> {
+    let sources = load_sources(config);
+    sources.iter().map(|s| s.distro.clone()).collect()
 }
