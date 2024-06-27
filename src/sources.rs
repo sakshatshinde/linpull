@@ -5,8 +5,8 @@ pub struct DownloadSource {
     pub distro: String,
     pub default: String,
     pub minimal: String,
-    pub default_torrent: String,
-    pub minimal_torrent: String,
+    pub mirror_default: String,
+    pub mirror_minimal: String,
     pub checksum: String,
 }
 impl DownloadSource {
@@ -19,8 +19,8 @@ impl DownloadSource {
             distro: section.to_string(),
             default: config.get(section, "default").unwrap_or_default(),
             minimal: config.get(section, "minimal").unwrap_or_default(),
-            default_torrent: config.get(section, "default_torrent").unwrap_or_default(),
-            minimal_torrent: config.get(section, "minimal_torrent").unwrap_or_default(),
+            mirror_default: config.get(section, "mirror_default").unwrap_or_default(),
+            mirror_minimal: config.get(section, "mirror_minimal").unwrap_or_default(),
             checksum: config.get(section, "checksum").unwrap_or_default(),
         }
     }
@@ -30,7 +30,7 @@ pub fn load_sources(config: &mut Ini) -> Vec<DownloadSource> {
         .load("config.ini")
         .expect("Failed to load config.ini");
 
-    let mut distros = config.sections();
+    let distros = config.sections();
 
     distros
         .iter()

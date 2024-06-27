@@ -1,7 +1,9 @@
 [package]
 name = "linpull"
+authors = ["Sakshat Shinde"]
 version = "0.1.0"
 edition = "2021"
+build = "build.rs"
 
 [dependencies]
 anyhow = "1.0.86"
@@ -9,3 +11,7 @@ chksum = "0.3.0"
 configparser = "3.0.4"
 trauma = "2.2.4"
 tokio = { version = "1.38.0", features = ["full"] }
+slint = "1.6"
+
+[build-dependencies]
+slint-build = "1.6"
