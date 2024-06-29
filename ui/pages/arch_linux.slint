@@ -1,8 +1,72 @@
 import { Page } from "page.slint";
+import { VerticalBox, HorizontalBox, Palette, Button } from "std-widgets.slint";
+import {DownloadRow} from "../download_row.slint";
 
 
 export component ArchLinux inherits Page {
-    title: @tr("Arch Linux based distrbutions");
+    title: @tr("Arch based distrbutions");
     preferred-height: 100%;
     preferred-width: 100%;
+    VerticalBox {
+        spacing: 20px;
+        DownloadRow {
+            icon: @image-url("../assets/icons8-arch-linux-96.png");
+            padding: 0px;
+            text: @tr("Arch Linux");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("ArcoLinux");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("EndeavourOS");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("Garuda Linux");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("ArchLabs Linux");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("CachyOS");
+        }
+
+        DownloadRow {
+            icon: @image-url("../assets/icons8-linux-48.png");
+            padding: 0px;
+            text: @tr("Manjaro");
+        }
+    }
+
+    Rectangle { }
+
+    HorizontalBox {
+        padding: 10px;
+        max-height: 60px;
+        Text {
+            text: "Arch Linux is an independently developed, x86-64 general-purpose GNU/Linux distribution that strives to provide the latest stable versions of most software by following a rolling-release model.";
+            horizontal-alignment: left;
+            wrap: word-wrap;
+        }
+
+        Image {
+            horizontal-alignment: right;
+            // colorize: darkcyan;
+            source: @image-url("../assets/archlinux-logo.png");
+        }
+    }
 }
