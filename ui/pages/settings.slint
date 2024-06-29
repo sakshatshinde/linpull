@@ -1,0 +1,46 @@
+import { Page } from "page.slint";
+import { Switch, Palette, HorizontalBox, AboutSlint} from "std-widgets.slint";
+
+export component Settings inherits Page {
+    title: @tr("Settings");
+    Switch {
+        horizontal-stretch: 0;
+        text: @tr("Dark Mode 🌙");
+        checked: Palette.color-scheme == ColorScheme.dark;
+        toggled => {
+            Palette.color-scheme = self.checked ? ColorScheme.dark : ColorScheme.light;
+            self.text = self.checked ? "Dark Mode 🌙" : "Light mode ☀️";
+        }
+    }
+
+    Switch {
+        checked: false;
+        horizontal-stretch: 0;
+        text: @tr("Auto delete ISOs on startup");
+    }
+
+    VerticalLayout {
+        Rectangle {
+            min-width: 16px;
+            min-height: 16px;
+        }
+
+        // AboutSlint {
+        //     max-height: 5px;
+        // }
+    }
+
+    Text {
+        horizontal-alignment: center;
+        text: "Made in India with ❤️";
+    }
+
+    HorizontalLayout {
+        Rectangle {
+            Text {
+                horizontal-alignment: center;
+                text: "© 2024 Sakshat Shinde - GNU GPLv3 License";
+            }
+        }
+    }
+}

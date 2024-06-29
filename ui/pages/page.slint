@@ -1,0 +1,21 @@
+// Copyright © SixtyFPS GmbH <info@slint.dev>
+// SPDX-License-Identifier: MIT
+
+import { HorizontalBox, VerticalBox } from "std-widgets.slint";
+
+
+export component Page inherits VerticalBox {
+    in property <string> title: "title";
+    in property <string> description: "description";
+    HorizontalBox {
+        Text {
+            font-size: 20px;
+            text <=> root.title;
+        }
+
+        // Spacer
+        Rectangle { }
+    }
+
+    @children
+}
