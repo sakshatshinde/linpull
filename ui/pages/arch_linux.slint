@@ -1,6 +1,7 @@
 import { Page } from "page.slint";
-import { VerticalBox, HorizontalBox, Palette, Button } from "std-widgets.slint";
-import {DownloadRow} from "../download_row.slint";
+import { VerticalBox, HorizontalBox, Palette, Button, ProgressIndicator  } from "std-widgets.slint";
+import { DownloadRow } from "../download_row.slint";
+import { DownloadStatus } from "../download_status.slint";
 
 
 export component ArchLinux inherits Page {
@@ -58,9 +59,14 @@ export component ArchLinux inherits Page {
             padding: 0px;
             text: @tr("Manjaro");
         }
-    }
 
-    Rectangle { }
+        DownloadStatus {
+            // change this to true and pass the flavor from the button into this
+            // then intiate download and track progress with the actual download of the ISO from rust's end.
+            visible: false;
+            flavor: "flavor";
+        }
+    }
 
     HorizontalBox {
         padding: 10px;
