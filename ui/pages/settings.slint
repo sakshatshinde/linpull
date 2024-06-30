@@ -1,5 +1,5 @@
 import { Page } from "page.slint";
-import { Switch, Palette, HorizontalBox } from "std-widgets.slint";
+import { Switch, Palette, HorizontalBox, GridBox, VerticalBox } from "std-widgets.slint";
 
 export component Settings inherits Page {
     title: @tr("Settings");
@@ -24,23 +24,25 @@ export component Settings inherits Page {
             min-width: 16px;
             min-height: 16px;
         }
-
-        // AboutSlint {
-        //     max-height: 5px;
-        // }
     }
 
-    Text {
-        horizontal-alignment: center;
-        text: "Made in India with ❤️";
-    }
-
-    HorizontalLayout {
-        Rectangle {
+    GridBox {
+        VerticalBox {
             Text {
-                horizontal-alignment: center;
+                horizontal-alignment: left;
+                text: "Made in India with ❤️";
+            }
+
+            Text {
+                horizontal-alignment: left;
                 text: "© 2024 Sakshat Shinde - GNU GPLv3 License";
             }
+        }
+
+        Image {
+            horizontal-alignment: right;
+            max-height: 50px;
+            source: @image-url("../assets/MadeWithSlint-logo-light.svg");
         }
     }
 }
