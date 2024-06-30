@@ -1,4 +1,4 @@
-import { VerticalBox, HorizontalBox, Palette, Button } from "std-widgets.slint";
+import { VerticalBox, HorizontalBox, Palette, Button, Spinner  } from "std-widgets.slint";
 
 export component DownloadRow inherits HorizontalLayout {
     in-out property <string> text <=> label.text;
@@ -22,6 +22,7 @@ export component DownloadRow inherits HorizontalLayout {
         max-width: 140px;
         text: "Download";
         clicked => {
+            self.enabled = false;
         }
     }
 }
