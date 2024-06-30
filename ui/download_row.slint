@@ -3,6 +3,7 @@ import { VerticalBox, HorizontalBox, Palette, Button } from "std-widgets.slint";
 export component DownloadRow inherits HorizontalLayout {
     in-out property <string> text <=> label.text;
     in property <image> icon <=> icon.source;
+    in-out property <string> flavor;
     icon := Image {
         // source: @image-url("../ui/assets/icons8-linux-48.png");
         horizontal-alignment: left;
@@ -16,9 +17,11 @@ export component DownloadRow inherits HorizontalLayout {
         vertical-alignment: center;
     }
 
-    Button {
+    download_button := Button {
         primary: true;
         max-width: 140px;
         text: "Download";
+        clicked => {
+        }
     }
 }

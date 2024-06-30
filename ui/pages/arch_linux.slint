@@ -10,42 +10,50 @@ export component ArchLinux inherits Page {
     VerticalBox {
         spacing: 20px;
         DownloadRow {
+            // correspond this flavor entry with config.ini section i.e [arch_linux] at the project root
+            flavor: "arch_linux";
             icon: @image-url("../assets/icons8-arch-linux-96.png");
             padding: 0px;
             text: @tr("Arch Linux");
         }
 
         DownloadRow {
+            flavor: "arcolinux";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("ArcoLinux");
         }
 
         DownloadRow {
+            flavor: "endeavour_os";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("EndeavourOS");
         }
 
         DownloadRow {
+            flavor: "garuda_linux";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("Garuda Linux");
         }
 
         DownloadRow {
+            flavor: "archlabs_linux";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("ArchLabs Linux");
         }
 
         DownloadRow {
+            flavor: "cachy_os";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("CachyOS");
         }
 
         DownloadRow {
+            flavor: "manjaro";
             icon: @image-url("../assets/icons8-linux-48.png");
             padding: 0px;
             text: @tr("Manjaro");

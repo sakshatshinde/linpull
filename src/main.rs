@@ -12,7 +12,7 @@ mod sources;
 #[tokio::main]
 async fn main() -> Result<(), slint::PlatformError> {
     let ui = AppWindow::new()?;
-
+    let ui_handle = ui.as_weak();
     let mut config = Ini::new();
     let distro_list = available_distros(&mut config);
     let downloader = DownloaderBuilder::new()

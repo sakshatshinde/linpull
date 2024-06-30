@@ -5,6 +5,7 @@ import { ArchLinux, Debian, Settings } from "pages/pages.slint";
 
 export component AppWindow inherits Window {
     icon: @image-url("../ui/assets/icons8-linux-48.png");
+    callback start_download(string);
     preferred-width: 1100px;
     preferred-height: 600px;
     min-height: 500px;
