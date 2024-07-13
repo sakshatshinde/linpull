@@ -2,21 +2,28 @@ import { HorizontalBox, ProgressIndicator } from "std-widgets.slint";
 export component DownloadStatus inherits HorizontalLayout {
     visible: false;
     in-out property <string> flavor;
-    flavor: "None";
     HorizontalBox {
-        Text {
-            vertical-alignment: center;
-            text: "Downloading " + flavor;
-            font-weight: 600;
-        }
-
         Rectangle {
-            ProgressIndicator {
-                width: 250px;
-                height: 20px;
+            pg := ProgressIndicator {
+                width: 300px;
+                height: 10px;
                 // progress: 20%;
                 indeterminate: true;
             }
         }
+
+        Text {
+            text: pg.progress * 100 + "%";
+            horizontal-alignment: left;
+            vertical-alignment: center;
+            font-weight: 600;
+        }
+
+        // Text {
+        //     horizontal-alignment: left;
+        //     vertical-alignment: center;
+        //     text: "Downloading " + flavor;
+        //     font-weight: 600;
+        // }
     }
 }

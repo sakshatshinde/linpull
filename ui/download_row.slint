@@ -1,9 +1,11 @@
 import { VerticalBox, HorizontalBox, Palette, Button, Spinner  } from "std-widgets.slint";
+import { DownloadStatus } from "download_status.slint";
 
 export component DownloadRow inherits HorizontalLayout {
     in-out property <string> text <=> label.text;
     in property <image> icon <=> icon.source;
     in-out property <string> flavor;
+    in property <bool> visible_download_status;
     icon := Image {
         // source: @image-url("../ui/assets/icons8-linux-48.png");
         horizontal-alignment: left;
@@ -17,12 +19,18 @@ export component DownloadRow inherits HorizontalLayout {
         vertical-alignment: center;
     }
 
+    download_status := DownloadStatus {
+        flavor: parent.flavor;
+        visible: parent.visible_download_status;
+    }
+
     download_button := Button {
         primary: true;
         max-width: 140px;
         text: "Download";
         clicked => {
             self.enabled = false;
+            download-status.visible = true;
         }
     }
 }
