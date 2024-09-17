@@ -1,7 +1,10 @@
 import { TabWidget } from "std-widgets.slint";
 import { SideBar } from "side_bar.slint";
 import { ArchLinux, Debian, Settings } from "pages/pages.slint";
+import { GDownGlobalProgress } from "app_globals.slint";
 
+// if we don't do this the rust side can't find the GDownGlobalProgress https://github.com/slint-ui/slint/discussions/2915
+export { GDownGlobalProgress } 
 
 export component AppWindow inherits Window {
     icon: @image-url("../ui/assets/icons8-linux-48.png");

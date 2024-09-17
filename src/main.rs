@@ -13,7 +13,9 @@ mod sources;
 async fn main() -> Result<(), slint::PlatformError> {
     // slint stuff
     let ui = AppWindow::new()?;
-    let ui_handle = ui.as_weak();
+
+    ui.global::<GDownGlobalProgress>()
+        .on_download_progress(|| 0.5);
 
     // downloader stuff
     let mut config = Ini::new();
