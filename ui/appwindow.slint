@@ -13,6 +13,7 @@ export component AppWindow inherits Window {
     title: @tr("linpull");
     HorizontalLayout {
         side-bar := SideBar {
+            accessible-role: AccessibleRole.list;
             title: @tr("Options");
             model: [@tr("Menu" => "Arch"), @tr("Menu" => "Debian"), @tr("Menu" => "Settings")];
         }

@@ -6,12 +6,12 @@ edition = "2021"
 build = "build.rs"
 
 [dependencies]
-anyhow = "1.0.86"
+anyhow = "1.0.89"
 chksum = "0.3.0"
 configparser = "3.0.4"
 trauma = "2.2.4"
-tokio = { version = "1.38.0", features = ["full"] }
-slint = "1.6"
+tokio = { version = "1.40.0", features = ["full"] }
+slint = "1.7.2"
 
 [build-dependencies]
-slint-build = "1.6"
+slint-build = "1.7.2"
